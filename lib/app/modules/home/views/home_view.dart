@@ -1,10 +1,11 @@
+import 'package:firebase_task/app/data/category_model.dart';
 import 'package:firebase_task/app/data/food_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
-import 'details_view.dart';
+import 'all_category_item_view.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
@@ -29,12 +30,12 @@ class HomeView extends GetView<HomeController> {
                   childAspectRatio: 0.92,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10),
-              itemCount: controller.allFood.length,
+              itemCount: controller.allCategory.length,
               itemBuilder: (BuildContext ctx, index) {
-                 FoodModel foodModel =
-                 controller.allFood.elementAt(index);
+                 CategoryModel categoryModel =
+                 controller.allCategory.elementAt(index);
                 return InkWell(
-                    onTap: () => Get.to(() => const ItemDetails(),arguments: foodModel),
+                    onTap: () => Get.to(() => const AllItemDetails(),arguments: categoryModel),
                     child: Container(
                   alignment: Alignment.center,
                   padding:
@@ -46,44 +47,37 @@ class HomeView extends GetView<HomeController> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          foodModel.image,
-                          fit: BoxFit.fill,
-                          width: Get.width * 0.47,
-                        ),
-                      ),
+
 
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-
-                          foodModel.name ?? "",
+                          categoryModel.name ?? "",
                           style: const TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16),
                         ),
                       ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            left: 8,
-                            bottom: 6,
-                          ),
-                          child: Text(
-
-                            '৳ ${foodModel.price ?? ""}',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              //fontSize: CcdDimens.space16,
-                              color: Color(0xffF5244F)
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Expanded(
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.only(
+                      //       left: 8,
+                      //       bottom: 6,
+                      //     ),
+                      //     child: Text(
+                      //
+                      //       '৳ ${foodModel.price ?? ""}',
+                      //       maxLines: 2,
+                      //       overflow: TextOverflow.ellipsis,
+                      //       style: const TextStyle(
+                      //         fontWeight: FontWeight.w500,
+                      //         //fontSize: CcdDimens.space16,
+                      //         color: Color(0xffF5244F)
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ));
