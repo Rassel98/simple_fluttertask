@@ -27,9 +27,9 @@ class AllItemDetails extends StatelessWidget {
       backgroundColor: Color(0xffF6F6F6),
       body: Obx(
         () => ListView.builder(
-          itemCount: controller.getsearchFood(model.id).length,
+          itemCount: controller.getSearchItems(model.id).length,
           itemBuilder: (context, index) {
-            final itemModel = controller.getsearchFood(model.id)[index];
+            final itemModel = controller.getSearchItems(model.id)[index];
             return GestureDetector(
               onTap: () =>
                   Get.to(() => const ItemDetails(), arguments: itemModel),

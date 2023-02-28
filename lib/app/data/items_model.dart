@@ -1,13 +1,13 @@
-class FoodModel {
+class ItemsModel {
   late String? name;
   late num? price;
   late num? catId;
   late String? image;
   late String? des;
 
-  FoodModel({this.name, this.price, this.catId, this.image, this.des});
+  ItemsModel({this.name, this.price, this.catId, this.image, this.des});
 
-  factory FoodModel.fromMap(Map<String, dynamic> map) => FoodModel(
+  factory ItemsModel.fromMap(Map<String, dynamic> map) => ItemsModel(
       name: map['name'],
       price: map['price'],
       image: map['image'],

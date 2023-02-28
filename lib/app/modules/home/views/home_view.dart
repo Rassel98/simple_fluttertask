@@ -1,5 +1,5 @@
 import 'package:firebase_task/app/data/category_model.dart';
-import 'package:firebase_task/app/data/food_model.dart';
+import 'package:firebase_task/app/data/items_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../data/food_model.dart';
+import '../../../data/items_model.dart';
 
 class ItemDetails extends StatelessWidget {
   const ItemDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final model = ModalRoute.of(context)!.settings.arguments as FoodModel;
+    final model = ModalRoute.of(context)!.settings.arguments as ItemsModel;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

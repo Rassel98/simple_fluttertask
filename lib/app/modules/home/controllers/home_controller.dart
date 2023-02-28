@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 import '../../../data/category_model.dart';
-import '../../../data/food_model.dart';
+import '../../../data/items_model.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
-  final _allFood = <FoodModel>[].obs;
-  List<FoodModel> get allFood => _allFood;
-  List<FoodModel>searchAll=[];
+  final _allFood = <ItemsModel>[].obs;
+  List<ItemsModel> get allFood => _allFood;
+  List<ItemsModel>searchAll=[];
 
   final _allCategory = <CategoryModel>[].obs;
   List<CategoryModel> get allCategory => _allCategory;
@@ -40,7 +40,7 @@ class HomeController extends GetxController {
   Future<void> getUsers() async {
     final snapshot = await _db.collection('items').get();
     _allFood.value = List.generate(snapshot.docs.length,
-            (index) => FoodModel.fromMap(snapshot.docs[index].data()));
+            (index) => ItemsModel.fromMap(snapshot.docs[index].data()));
   }
   Future<void> getCategory() async {
     final snapshot = await _db.collection('category').get();
@@ -50,7 +50,7 @@ class HomeController extends GetxController {
   }
 
 
-  List<FoodModel>getsearchFood(num id){
+  List<ItemsModel>getSearchItems(num id){
     searchAll.clear();
   for( var i in allFood){
     if(i.catId==id){
